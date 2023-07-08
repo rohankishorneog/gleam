@@ -13,7 +13,7 @@ const SignUp = () => {
     password: '',
   });
 
-  const handleInputChange = (event) => {
+   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -31,7 +31,9 @@ const SignUp = () => {
   return (
     <div>
       <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
+      <form 
+      id="signupForm"
+      onSubmit={handleSubmit}>
         <div>
           <label htmlFor="firstName">First Name:</label>
           <input
