@@ -4,7 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import RequiresAuth from "./components/RequiresAuth";
 
 
-
+import Profile from "./components/profile/Profile";
 import LandingPage from "./pages/landingPage/LandingPage";
 import LoginPage from "./pages/loginpage/LoginPage";
 import SignupPage from "./pages/signupPage/SignupPage";
@@ -31,6 +31,8 @@ function App() {
           <RequiresAuth><ExplorePage/></RequiresAuth>}/>
           <Route path='/bookmark' element={
           <RequiresAuth><BookmarksPage/></RequiresAuth>}/>
+          <Route path='/users/:id' element={
+          <RequiresAuth><Profile/></RequiresAuth>}/>
           <Route path='/profile' element={
           <RequiresAuth><ProfilePage/></RequiresAuth>}/>
           <Route path='/createPost' element={
