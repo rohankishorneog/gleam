@@ -10,7 +10,7 @@ const Posts = () => {
         {posts.map(post => (
         <div>
             <h3>{post.username}</h3>
-            <p>c{post.content}</p>
+            <p>{post.content}</p>
             <p>
                 <span>{post.likes.likeCount}</span>
                 
