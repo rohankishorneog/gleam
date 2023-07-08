@@ -36,10 +36,13 @@ export const AuthContextProvider=({children})=>{
             }
         }
 
-        const login= async({userData}) => {
+        const login= async({username, password}) => {
+            console.log(`userdata: `+username)
 
             try {
-                const response = await axios.post(`/api/auth/login`, userData)
+                const response = await axios.post(`/api/auth/login`, {
+                    username,password
+                })
                 const {user, encodedToken}=response.data
                 localStorage.setItem('token', encodedToken)
             
