@@ -1,19 +1,24 @@
 import React from 'react'
+import './Homepage.css'
 import Posts from '../../components/posts/Posts'
 import CreatePost from '../../components/createPost/CreatePost'
 
 const Homepage = () => {
   return (
-    <div>
+    <div className='main-div'>
+        <div className='left-section'>
+        left-section
+    </div>
     <div>
         <CreatePost/>
         <Posts/>
 
     </div>
-    <div>
-        left-section
+    
+    <div className='right-section'>
+    right-section``
     </div>
-        right-section``
+        
     </div>
     
   )
