@@ -1,9 +1,14 @@
 import React, { useContext } from 'react';
 import { PostContext } from '../../contexts/PostContext';
 import { Link } from 'react-router-dom';
+import Bookmark from '../bookmark/Bookmark';
+
+
+
 
 const Posts = () => {
   const { posts, isLoading, addLike, dislike, deletePost } = useContext(PostContext);
+
 
   const handleLike = (id) => {
     addLike(id);
@@ -33,6 +38,7 @@ const Posts = () => {
             <button>
               <Link to={`/editPost/${post._id}`}>Edit</Link>
             </button>
+            <Bookmark id={post._id}/>
           </p>
           <hr />
         </div>
