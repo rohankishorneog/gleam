@@ -3,63 +3,47 @@ import axios from 'axios'
 
 export const AuthContext = createContext();
 
-export const AuthContextProvider=({children})=>{
-        const [loggedInUser, setLoggedInUser]=useState(null)
-        
+export const AuthContextProvider = ({ children }) => {
+  const [loggedInUser, setLoggedInUser] = useState(null);
 
-        const signup= async({ 
-        
+  const signup = async ({ firstName, lastName, username, password }) => {
+    try {
+      const response = await axios.post(`/api/auth/signup`, { 
         firstName,
         lastName,
         username,
-        password})=>{
-          
-            try{
-            const response= await axios.post(`/api/auth/signup`,{ 
-                
-                firstName,
-                lastName,
-                username,
-                password})
+        password
+      });
+      console.log(response)
+      const { createdUser, encodedToken } = response.data;
+      
+      setLoggedInUser(createdUser); 
+      localStorage.setItem('token', encodedToken);
+    } catch (error) {
+      alert(error);
+    }
+  };
 
-        
-            const { user, encodedToken}= response.data
-            
-           
-            setLoggedInUser(user)
-            localStorage.setItem('token',encodedToken)
+  const login = async ({ username, password }) => {
+    try {
+      const response = await axios.post(`/api/auth/login`, {
+        username,
+        password
+      });
+      
+      const {foundUser, encodedToken } = response.data;
+      console.log(foundUser )
+      localStorage.setItem('token', encodedToken);
+      setLoggedInUser(foundUser ); 
+      console.log(loggedInUser);
+    } catch (error) {
+      alert(error);
+    }
+  };
 
-            }
-            catch(error){
-                
-                alert(error)
-            }
-        }
-
-        const login= async({username, password}) => {
-            console.log(`userdata: `+username)
-
-            try {
-                const response = await axios.post(`/api/auth/login`, {
-                    username,password
-                })
-                const {user, encodedToken}=response.data
-                localStorage.setItem('token', encodedToken)
-            
-                setLoggedInUser(user)
-            } catch (error) {
-                alert(error)
-            }
-        }
-
- return(
-    <AuthContext.Provider value={{ loggedInUser, signup, login}}>
-        {children}
+  return (
+    <AuthContext.Provider value={{ loggedInUser, signup, login }}>
+      {children}
     </AuthContext.Provider>
- )       
-
-
-
-
-
-}
+  );
+};
