@@ -24,7 +24,7 @@ const SignUp = () => {
   const handleSubmit =   async(event) => {
     event.preventDefault();
     await signup(formData);
-    navigate('/test');
+    navigate('/home');
     
   };
 

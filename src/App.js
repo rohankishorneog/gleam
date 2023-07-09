@@ -1,5 +1,5 @@
 
-import Mockman from  'mockman-js'
+// import Mockman from  'mockman-js'
 import { Routes, Route } from "react-router-dom";
 import RequiresAuth from "./components/RequiresAuth";
 
@@ -21,7 +21,7 @@ import EditPost from './components/editPost/EditPost';
 function App() {
   return (
     <div className="App">
-    <Mockman/>
+    {/* <Mockman/> */}
     <Routes>
           <Route path="/" element={<LandingPage/>}/>
           <Route path='/login' element={<LoginPage/>}/>

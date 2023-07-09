@@ -21,7 +21,8 @@ const Profile = () => {
           <h2>Profile</h2>
           <p>Name: {selectedUser.firstName}</p>
           <p>User name: {selectedUser.username}</p>
-          {/* Add other user details as needed */}
+
+
         </div>
       ) : (
         <p>Loading profile...</p>
