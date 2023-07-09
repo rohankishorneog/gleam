@@ -29,7 +29,7 @@ export  const PostContextProvider=({children})=>{
             }
         }
         getPosts()
-    },[posts])
+    },[])
 
     const createPost = async ({ postData: { content } }) => {
        
@@ -50,7 +50,7 @@ export  const PostContextProvider=({children})=>{
             }
           );
           
-          if (response.status === 200) {
+          if (response.status === 201) {
            
             setPosts(response.data.posts);
           } else {
@@ -63,13 +63,107 @@ export  const PostContextProvider=({children})=>{
         }
       };
       
-        
-    
-  
+
+        //for likes
+        const addLike = async (postId) => {
+
+            
+            try {
+              const token = localStorage.getItem('token');
+          
+              const response = await axios.post(`/api/posts/like/${postId}`,{},{
+                headers: {
+                  authorization: token,
+                }
+              });
+              console.log(response.data);
+          
+              if (response.status === 201) {
+                setPosts(response.data.posts)
+              }
+            } catch (error) {
+              // Handle errors
+              console.error('Error adding like:', error);
+            }
+          };
+
+          //for dislike
+          const dislike = async (postId) => {
+
+            
+            try {
+              const token = localStorage.getItem('token');
+          
+              const response = await axios.post(`/api/posts/dislike/${postId}`,{},{
+                headers: {
+                  authorization: token,
+                }
+              });
+              console.log(response.data);
+          
+              if (response.status === 201) {
+                setPosts(response.data.posts)
+              }
+            } catch (error) {
+              // Handle errors
+              console.error('Error adding like:', error);
+            }
+          };
+
+          //edit post
+          const editPost = async (postId,postData) => {
+                console.log(postId)
+
+                console.log(postData)
+            try {
+              const token = localStorage.getItem('token');
+          
+              const response = await axios.post(`/api/posts/edit/${postId}`, {
+                postData:postData
+              }, {
+                headers: {
+                  authorization: token,
+                }
+              });
+              
+              console.log(response.status);
+          
+              if (response.status === 201) {
+                setPosts(response.data.posts)
+              }
+              
+            } catch (error) {
+              // Handle errors
+              console.error('Error adding like:', error);
+            }
+          };
+
+          //delete post
+          const deletePost = async (postId) => {
+            try {
+              const token = localStorage.getItem('token');
+              
+              const response = await axios.delete(`/api/posts/${postId}`, {
+                headers: {
+                  authorization: token
+                }
+              });
+          
+              console.log(response.status);
+          
+              if (response.status === 201) {
+                setPosts(response.data.posts);
+                
+              }
+            } catch (error) {
+              
+              console.error('Error deleting post:', error);
+            }
+          };
 
 
     return(
-        <PostContext.Provider value={{posts,isLoading,error,createPost}}>
+        <PostContext.Provider value={{posts,isLoading,error,createPost,addLike,dislike,editPost,deletePost}}>
             {children}
         </PostContext.Provider>
     )

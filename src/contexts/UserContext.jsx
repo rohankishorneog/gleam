@@ -6,7 +6,7 @@ export const UserContext = createContext();
 export const UserContextProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [selectedUser,setSelectedUser]=useState(null)
-  const {posts}=
+  
   useEffect(() => {
     const getUsers = async () => {
       try {
@@ -38,6 +38,8 @@ export const UserContextProvider = ({ children }) => {
         console.log(error);
       }
   }
+
+
   const editUser = async (userData) => {
     const token = localStorage.getItem('token');
     console.log(userData);
@@ -60,6 +62,9 @@ export const UserContextProvider = ({ children }) => {
       alert(error);
     }
   };
+
+
+
   
 
 
