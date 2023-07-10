@@ -1,0 +1,15 @@
+.bookmark-button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    color: #333;
+  }
+  
+  .bookmark-icon {
+    margin-right: 5px;
+  }
+  
