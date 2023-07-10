@@ -1,5 +1,7 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { AuthContext } from "./AuthContext";
 
 export const UserContext = createContext();
 
@@ -7,6 +9,16 @@ export const UserContextProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
   const [selectedUser,setSelectedUser]=useState(null)
   const [bookmarks, setBookmarks] = useState([]);
+  const avatars = {
+    avatarOne: "https://robohash.org/avatar1.png",
+    avatarTwo: "https://robohash.org/avatar2.png",
+    avatarThree: "https://robohash.org/avatar3.png",
+    avatarFour: "https://robohash.org/avatar4.png",
+    avatarFive: "https://robohash.org/avatar5.png",
+    avatarSix: "https://robohash.org/avatar6.png",
+    avatarSeven: "https://robohash.org/avatar7.png"
+  };
+  const {loggedInUser,setLoggedInUser}=useContext(AuthContext)
   
   useEffect(() => {
     const getUsers = async () => {
@@ -26,12 +38,14 @@ export const UserContextProvider = ({ children }) => {
   }, []);
 
   const getUserById=async(id)=>{
+    console.log(id)
 
     try {
         const response = await axios.get(`/api/users/${id}`);
         console.log(response.data.user);
         if (response.status === 200) {
           setSelectedUser(response.data.user);
+          
         } else {
           console.log(response.message);
         }
@@ -40,22 +54,22 @@ export const UserContextProvider = ({ children }) => {
       }
   }
 
-
   const editUser = async (userData) => {
     const token = localStorage.getItem('token');
     console.log(userData);
     try {
-      const response = await axios.post(`/api/users/edit`,{ userData}, {
+      const response = await axios.post(`/api/users/edit`, { userData }, {
         headers: { authorization: token },
       });
       console.log(response.data.user);
       if (response.status === 201) {
+        setLoggedInUser(response.data.user);
         setUsers((prevUsers) =>
           prevUsers.map((user) => {
-            return user.id === response.data.user.id? 
-             { ...user, ...response.data.user }: user;
+            return user._id === loggedInUser._id ? { ...user, ...response.data.user } : user;
           })
         );
+        toast.success("Profile Saved")
       } else {
         alert(response.data.message);
       }
@@ -63,7 +77,7 @@ export const UserContextProvider = ({ children }) => {
       alert(error);
     }
   };
-
+  
 
   //bookmarks
 
@@ -84,14 +98,14 @@ export const UserContextProvider = ({ children }) => {
       if (response.status === 200) {
         const updatedBookmarks = response.data.bookmarks;
         setBookmarks(updatedBookmarks);
-        console.log(updatedBookmarks);
+        toast.success("Bookmark Succesfully Added")
       }
 
-      // Optionally, you can perform any other actions after bookmarking the post
+      
 
     } catch (error) {
-      // Handle errors
-      console.error('Error bookmarking post:', error);
+     
+      toast.error( error);
     }
   };
 
@@ -111,11 +125,11 @@ export const UserContextProvider = ({ children }) => {
       if (response.status === 200) {
         const updatedBookmarks = response.data.bookmarks;
         setBookmarks(updatedBookmarks);
-        console.log(updatedBookmarks);
+        toast.success("Bookmark removed")
       }
   
     } catch (error) {
-      console.error('Error removing bookmark:', error);
+      toast.error( error);
     }
   };
 
@@ -133,15 +147,17 @@ export const UserContextProvider = ({ children }) => {
       console.log(response.status);
   
       if (response.status === 200) {
-        const { user, followUser } = response.data.data;
+        const { user, followUser } = response.data;
         console.log(user);
         console.log(followUser);
+
+        toast.success("followed successfully")
     
       }
   
     } catch (error) {
 
-      console.error('Error following user:', error);
+      toast.error('Error following user:', error);
     }
   };
 
@@ -158,15 +174,16 @@ export const UserContextProvider = ({ children }) => {
       console.log(response);
   
       if (response.status === 200) {
-        const { user, followUser } = response.data.data;
+        const { user, followUser } = response.data;
         console.log(user);
         console.log(followUser);
-        // Optionally, you can perform any other actions after unfollowing the user
+        toast.success("unfollowed ")
+        
       }
   
     } catch (error) {
       // Handle errors
-      console.error('Error unfollowing user:', error);
+      toast.error('Error unfollowing user:', error);
     }
   };
   
@@ -186,7 +203,7 @@ export const UserContextProvider = ({ children }) => {
 
 
   return (
-    <UserContext.Provider value={{ users , selectedUser, getUserById,editUser,bookmarks, bookmarkPost,removeBookmark, followUser, unfollowUser}}>
+    <UserContext.Provider value={{ users , selectedUser, getUserById,editUser,bookmarks, bookmarkPost,removeBookmark, followUser, unfollowUser, avatars}}>
       {children}
     </UserContext.Provider>
   );

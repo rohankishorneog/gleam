@@ -1,7 +1,8 @@
 
 // import Mockman from  'mockman-js'
 import { Routes, Route } from "react-router-dom";
-import RequiresAuth from "./components/RequiresAuth";
+import RequiresAuth from "./components/RequiresAuth"
+import './App.css';
 
 
 import Profile from "./components/profile/Profile";
@@ -14,14 +15,18 @@ import BookmarksPage from "./pages/bookmarks/BookmarksPage";
 import ProfilePage from "./pages/profilepage/ProfilePage";
 import CreatePost from "./components/createPost/CreatePost";
 import EditPost from './components/editPost/EditPost';
+import EditProfile from "./components/editProfile/EditProfile";
 
 
 
 
 function App() {
+
+  
   return (
     <div className="App">
     {/* <Mockman/> */}
+  
     <Routes>
           <Route path="/" element={<LandingPage/>}/>
           <Route path='/login' element={<LoginPage/>}/>
@@ -32,6 +37,8 @@ function App() {
           <RequiresAuth><ExplorePage/></RequiresAuth>}/>
           <Route path='/editPost/:postId' element={
           <RequiresAuth><EditPost/></RequiresAuth>}/>
+          <Route path='/editProfile' element={
+          <RequiresAuth><EditProfile/></RequiresAuth>}/>
           <Route path='/bookmark' element={
           <RequiresAuth><BookmarksPage/></RequiresAuth>}/>
           <Route path='/users/:id' element={
