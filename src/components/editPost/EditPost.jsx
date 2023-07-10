@@ -27,7 +27,7 @@ const EditPost = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    editPost(postId, formData.postData); // Pass formData.postData
+    editPost(postId, formData.postData);
     onClose();
   };
   
