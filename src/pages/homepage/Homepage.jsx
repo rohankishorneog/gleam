@@ -11,7 +11,8 @@ const Homepage = () => {
         <div className='left-section'>
        <SideLinks/>
     </div>
-    <div>
+    <div className='second-section'>
+    <div className='mid-section'>
         <CreatePost/>
         <Posts/>
 
@@ -22,6 +23,8 @@ const Homepage = () => {
     </div>
         
     </div>
+    </div>
+  
     
   )
 }

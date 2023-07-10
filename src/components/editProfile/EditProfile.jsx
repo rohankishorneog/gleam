@@ -1,48 +1,85 @@
- import React, { useContext, useState } from 'react'
-import { UserContext } from '../../contexts/UserContext'
-import { useNavigate } from 'react-router'
- 
- const EditProfile = () => {
+import React, { useContext, useState } from 'react';
+import { UserContext } from '../../contexts/UserContext';
+import { useNavigate } from 'react-router';
+import './EditProfile.css'; // Import the external CSS file
 
-    const {editUser}=useContext(UserContext)
-    const navigate=useNavigate()
+const EditProfile = () => {
+  const navigate = useNavigate();
+  const { editUser, avatars } = useContext(UserContext);
 
+  const [formData, setFormData] = useState({
+    bio: '',
+    url: '',
+    avatarImg: '',
+  });
 
-    const [formData,setFormData]=useState({
-        firstName:""
-    })
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
-    const handleChange=(e)=>{
-        const { name, value } = e.target
-
-    setFormData(prevData => ({
+    setFormData((prevData) => ({
       ...prevData,
-      [name]: value
-    }))
-    }
+      [name]: value,
+    }));
+  };
 
-    const handleSubmit=async(e)=>{
-        e.preventDefault()
-        await editUser(formData)
-        navigate(`/home`)
-    }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await editUser(formData);
+    navigate('/home');
+  };
 
+  return (
+    <div className="card-container">
+      <form className="card" onSubmit={handleSubmit}>
+        <label className="card-label">
+          Bio:
+          <input
+            type="text"
+            className="card-input"
+            placeholder="bio"
+            name="bio"
+            value={formData.bio}
+            onChange={handleChange}
+          />
+        </label>
+        <label className="card-label">
+          URL:
+          <input
+            type="text"
+            className="card-input"
+            placeholder="url"
+            name="url"
+            value={formData.url}
+            onChange={handleChange}
+          />
+        </label>
+        <label className="card-label">
+          Avatar Image:
+          <select
+            className="card-input"
+            name="avatarImg"
+            value={formData.avatarImg}
+            onChange={handleChange}
+          >
+            <option value="">Select Avatar</option>
+            {Object.entries(avatars).map(([key, value]) => (
+              <option key={key} value={value}>
+                {key}
+              </option>
+            ))}
+          </select>
+          {formData.avatarImg && (
+            <img
+              src={formData.avatarImg}
+              alt="Selected Avatar"
+              className="avatar-image"
+            />
+          )}
+        </label>
+        <button type="submit" className="card-button">Save</button>
+      </form>
+    </div>
+  );
+};
 
-   return (
-     <div>
-        <form onSubmit={handleSubmit}>
-            <label >
-                <input type="text"
-                placeholder='first name'
-                name='firstName'
-                value={formData.name}
-                onChange={handleChange}
-                 />
-                 <button type='submit'>save changes</button>
-            </label>
-        </form>
-     </div>
-   )
- }
- 
- export default EditProfile
+export default EditProfile;

@@ -1,0 +1,62 @@
+.landing-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+  
+  .landing-main-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #ffffff;
+    background-image: linear-gradient(to right top, #f9fafb, #f2f4f6, #ebecf0, #e4e6ea, #dde0f1);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 400px;
+    text-align: center;
+  }
+  
+  .landing-main-div h1 {
+    font-size: 2.5rem;
+    color: #333333;
+    margin-bottom: 20px;
+  }
+  
+  .landing-main-div p {
+    font-size: 1.2rem;
+    color: #555555;
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+  
+  .landing-main-div button {
+    margin-bottom: 2vh;
+    background-color: #132fd1;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .landing-main-div button:hover {
+    background-color: #ff4f4f;
+  }
+  
+  
+  .landing-main-div button a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+  
+  .landing-main-div a:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,0 +1,91 @@
+/* Profile.css */
+.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .profile-card {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .profile-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+
+.user-details {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-details p {
+    margin-bottom: 10px;
+  }
+  
+  .user-details img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  .user-details a {
+    color: #0366d6;
+    text-decoration: none;
+  }
+  
+ 
+  
+  
+  .post {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+  }
+  
+  .buttons-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .like-icon {
+    margin-right: 5px;
+  }
+  
+  .like-count {
+    font-weight: bold;
+    margin-left: 5px;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 480px) {
+    .profile-card {
+      max-width: 300px;
+    }
+  }
+  
+  @media screen and (max-width: 320px) {
+    .profile-card {
+      max-width: 250px;
+    }
+  
+    .user-details img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  
+ 
+  

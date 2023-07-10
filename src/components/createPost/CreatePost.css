@@ -1,0 +1,55 @@
+.create-post-container {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 1rem;
+  }
+.create-post-form {
+    max-width: 100%;
+    width: 90%;
+    margin: 0 auto;
+    padding: 1vh;
+  }
+  
+  .create-post-textarea {
+    width: 20vh;
+    height: 3vh;
+    padding: 2rem;
+    border: 4px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  .create-post-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 1rem; 
+  }
+  
+  .create-post-icon {
+    font-size: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    .create-post-form {
+      width: 100%; 
+      padding: 0 1rem; 
+    }
+  
+    .create-post-textarea {
+      height: 3vh;
+    }
+  
+    .create-post-button {
+      width: 40px; 
+      height: 40px; 
+      font-size: 1rem; 
+    }
+  }
+  

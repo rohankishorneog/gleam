@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import './SignUp.css';
 
 
 const SignUp = () => {
@@ -13,7 +14,7 @@ const SignUp = () => {
     password: '',
   });
 
-   const handleInputChange = (event) => {
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
@@ -21,19 +22,16 @@ const SignUp = () => {
     }));
   };
 
-  const handleSubmit =   async(event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     await signup(formData);
-    navigate('/home');
-    
+    navigate('/editProfile');
   };
 
   return (
     <div>
       <h2>Signup</h2>
-      <form 
-      id="signupForm"
-      onSubmit={handleSubmit}>
+      <form className="signup-form" id="signupForm" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="firstName">First Name:</label>
           <input
@@ -42,6 +40,7 @@ const SignUp = () => {
             name="firstName"
             value={formData.firstName}
             onChange={handleInputChange}
+            required
           />
         </div>
         <div>
@@ -52,6 +51,7 @@ const SignUp = () => {
             name="lastName"
             value={formData.lastName}
             onChange={handleInputChange}
+            required
           />
         </div>
         <div>
@@ -62,6 +62,7 @@ const SignUp = () => {
             name="username"
             value={formData.username}
             onChange={handleInputChange}
+            required
           />
         </div>
         <div>
@@ -72,6 +73,7 @@ const SignUp = () => {
             name="password"
             value={formData.password}
             onChange={handleInputChange}
+            required
           />
         </div>
         <button type="submit">Signup</button>

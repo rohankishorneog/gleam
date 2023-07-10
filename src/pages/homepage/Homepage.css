@@ -1,4 +1,43 @@
-.main-div{
+.main-div {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-}
+    align-items: flex-start;
+  }
+  
+  .left-section {
+    width: 15%;
+  
+  }
+
+  .second-section{
+    display: flex;
+  }
+  
+  .mid-section {
+    flex: 1;
+    margin-right: 2px;
+  }
+  
+  .right-section {
+    width: 30%;
+  }
+  
+  @media (max-width: 768px) {
+    .main-div {
+      flex-direction: column-reverse;
+    }
+    .second-section{
+        display: flex;
+        flex-direction: column;
+      }
+  
+    .left-section,
+    .mid-section,
+    .right-section {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+  
