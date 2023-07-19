@@ -1,9 +1,10 @@
 import React, { useState, useContext } from 'react';
 import { PostContext } from '../../contexts/PostContext';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate} from 'react-router';
+import "./EditPost.css"
 
-const EditPost = () => {
-  const { postId } = useParams();
+const EditPost = ({postId}) => {
+  // const { postId } = useParams();
   console.log(postId)
   const { editPost } = useContext(PostContext);
   const [formData, setFormData] = useState({
@@ -33,17 +34,17 @@ const EditPost = () => {
   
 
   return (
-    <div>
-      <h3>Edit Post</h3>
-      <form onSubmit={handleSubmit}>
-        <textarea
-          value={formData.postData.content}
-          onChange={handleContentChange}
-        />
-        <button type="submit">Save</button>
-        <button onClick={onClose}>Cancel</button>
-      </form>
-    </div>
+    <div className="EditPost-container">
+    <h3 className="EditPost-title">Edit Post</h3>
+    <form onSubmit={handleSubmit} className="EditPost-form">
+      <textarea
+        value={formData.postData.content}
+        onChange={handleContentChange}
+      />
+      <button type="submit">Save</button>
+      <button onClick={onClose}>Cancel</button>
+    </form>
+  </div>
   );
 };
 
