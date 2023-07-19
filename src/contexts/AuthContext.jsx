@@ -73,7 +73,6 @@ export const AuthContextProvider = ({ children }) => {
                 pauseOnHover
                 theme="light"
             />
-            {/* Same as */}
             <ToastContainer />
         </AuthContext.Provider>
     );

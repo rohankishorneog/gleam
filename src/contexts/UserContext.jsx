@@ -18,6 +18,7 @@ export const UserContextProvider = ({ children }) => {
     avatarSix: "https://robohash.org/avatar6.png",
     avatarSeven: "https://robohash.org/avatar7.png"
   };
+  const defaultAvatar ="https://robohash.org/default.png"
   const {loggedInUser,setLoggedInUser}=useContext(AuthContext)
   
   useEffect(() => {
@@ -203,7 +204,7 @@ export const UserContextProvider = ({ children }) => {
 
 
   return (
-    <UserContext.Provider value={{ users , selectedUser, getUserById,editUser,bookmarks, bookmarkPost,removeBookmark, followUser, unfollowUser, avatars}}>
+    <UserContext.Provider value={{ users , selectedUser, getUserById,editUser,bookmarks, bookmarkPost,removeBookmark, followUser, unfollowUser, avatars, defaultAvatar}}>
       {children}
     </UserContext.Provider>
   );
