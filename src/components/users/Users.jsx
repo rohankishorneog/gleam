@@ -21,7 +21,19 @@ const Users = () => {
   return (
     <div className="users-container">
       <h3>Suggestions</h3>
-      <div className="user-scroll">
+      {visibleUsers < users.length && (
+        <div className="load-buttons">
+          <button onClick={loadMoreUsers} className="load-more-button">
+            More
+          </button>
+          {visibleUsers > 4 && (
+            <button onClick={loadLessUsers} className="load-less-button">
+              less
+            </button>
+          )}
+        </div>
+      )}
+      
         <div className="user-list">
           {users.slice(0, visibleUsers).map((user) => (
             user._id !== loggedInUser._id && (
@@ -35,8 +47,11 @@ const Users = () => {
                         alt="User Avatar"
                       />
                     </div>
+                    <div className='user-name-details'>
                     <p className="user-name">{`${user.firstName} ${user.lastName}`}</p>
                     <p className="user-username">@{user.username}</p>
+                    </div>
+                   
                   </Link>
                 </div>
                 <div className="follow-section">
@@ -46,19 +61,7 @@ const Users = () => {
             )
           ))}
         </div>
-      </div>
-      {visibleUsers < users.length && (
-        <div className="load-buttons">
-          <button onClick={loadMoreUsers} className="load-more-button">
-            Load More
-          </button>
-          {visibleUsers > 4 && (
-            <button onClick={loadLessUsers} className="load-less-button">
-              Show Less
-            </button>
-          )}
-        </div>
-      )}
+
     </div>
   );
 };
