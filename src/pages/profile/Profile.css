@@ -1,0 +1,214 @@
+.profile{
+  display:flex;
+  flex-direction: row;
+  padding-left: 10%;
+}
+.left-section{
+  background-color: black;
+  position: sticky;
+  bottom: 0;
+  
+}
+.mid-section{
+  margin-right:1rem ;
+}
+
+/* selected user profile card */
+
+.user-details-container{
+border: 2px solid black;
+box-shadow: 3px 6px 10px rgba(0,0,0,5);
+padding: 5%;
+width: 30vh;
+margin-left: 15%;
+margin-right: 20%;
+margin-top: 5%;
+text-align: center;
+}
+
+.profile-user-avatar{
+max-width: 14vh;
+margin-bottom:4px ;
+background-color: black;
+border-radius: 50%;
+}
+
+.user-details-texts{
+max-width: 320px;
+font-size: 16px;
+line-height: 0%;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.user-details-texts p a {
+font-size: 13px;
+
+}
+.user-details-url a{
+text-decoration: none;
+color: black;
+}
+
+
+
+/* post of user */
+  .post-scroll{
+    padding: 3rem;
+    margin-bottom: 2rem;
+    overflow-y: scroll;
+    max-height: 600px;
+  }
+
+  .post{
+    border: 2px black solid ;
+    margin-bottom: 10px;
+    padding: 3%;
+  }
+  .buttons-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .like-icon{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items:center ;
+  }
+
+
+
+.profile-logout-btn, .profile-edit-btn{
+  color: orangered;
+}
+.profile-edit-post-icon{
+  color: black;
+
+}
+.Edit-post-modal {
+  /* Modal styles */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.Edit-post-modal-overlay {
+  /* Overlay styles */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(247, 183, 183, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+@media only screen and (max-width: 768px) {
+  
+
+  .profile{
+    display:flex;
+    flex-direction: column-reverse;
+    margin-right: 0%;
+    margin-left: 0%;
+    padding-left: 0%;;
+  }
+  .left-section{
+    background-color: black;
+    position: sticky;
+    bottom: 0;
+    
+  }
+
+  /* selected user profile card */
+
+ .user-details-container{
+  border: 2px solid black;
+  box-shadow: 3px 6px 10px rgba(0,0,0,5);
+  padding: 5%;
+  width: 350px;
+  margin-left: 10%;
+  margin-right: 5%;
+  margin-top: 5%;
+  text-align: center;
+ }
+
+ .profile-user-avatar{
+  max-width: 14vh;
+  margin-bottom:4px ;
+  background-color: black;
+  border-radius: 50%;
+ }
+
+.user-details-texts{
+  max-width: 320px;
+  font-size: 16px;
+  line-height: 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-details-texts p a {
+  font-size: 13px;
+
+}
+.user-details-url a{
+  text-decoration: none;
+  color: black;
+}
+
+
+
+  /* post of user */
+    .post-scroll{
+      padding: 3rem;
+      margin-bottom: 2rem;
+      overflow-y: scroll;
+      max-height: 600px;
+    }
+  
+    .post{
+      border: 2px black solid ;
+      margin-bottom: 10px;
+      padding: 3%;
+    }
+    .buttons-container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .like-icon{
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items:center ;
+    }
+  
+  }
+
+  @media (max-width: 480px) {
+    .user-details-container{
+      border: 2px solid black;
+      box-shadow: 2px 5px 10px rgba(0,0,0.2,3);
+      padding: 5%;
+      margin: 5%;
+      width: 300px;
+      margin-top: 5%;
+      text-align: center;
+     }
+
+  }

@@ -1,43 +1,45 @@
-.main-div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
+.main-div{
+  display:flex;
+  flex-direction: row;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.left-section{
+  background-color: black;
+  position: sticky;
+  max-width: 10vh;
+  max-height: 100%;
+  margin-right: 10%;
   
-  .left-section {
-    width: 15%;
-  
-  }
+}
 
-  .second-section{
-    display: flex;
-  }
+.second-section{
+  display: flex;
+  margin-top: 15px;
+}
+
+
+@media only screen and (max-width: 768px) {
   
-  .mid-section {
-    flex: 1;
-    margin-right: 2px;
-  }
+
+.main-div{
+  display:flex;
+  flex-direction: column-reverse;
+  margin-left: 0%;
+  margin-right: 0%;
+}
+.second-section{
+  display: flex;
+  flex-direction: column;
+}
+.left-section{
+  background-color: black;
+  position: sticky;
+  bottom: 0;
+  max-width: 100%;
+  margin-right: 0;
   
-  .right-section {
-    width: 30%;
-  }
-  
-  @media (max-width: 768px) {
-    .main-div {
-      flex-direction: column-reverse;
-    }
-    .second-section{
-        display: flex;
-        flex-direction: column;
-      }
-  
-    .left-section,
-    .mid-section,
-    .right-section {
-      width: 100%;
-      margin-right: 0;
-      margin-bottom: 20px;
-    }
-  }
-  
+}
+}
+
+

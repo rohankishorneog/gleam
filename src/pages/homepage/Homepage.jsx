@@ -4,9 +4,12 @@ import Posts from '../../components/posts/Posts'
 import CreatePost from '../../components/createPost/CreatePost'
 import SideLinks from '../../components/sideLinks/SideLinks'
 import Users from '../../components/users/Users'
+import Header from '../../components/Header/Header'
 
 const Homepage = () => {
   return (
+    <div>
+      <Header/>
     <div className='main-div'>
         <div className='left-section'>
        <SideLinks/>
@@ -22,6 +25,7 @@ const Homepage = () => {
             <Users/>
     </div>
         
+    </div>
     </div>
     </div>
   

@@ -2,9 +2,13 @@ import React from 'react'
 import Posts from '../../components/posts/Posts'
 import SideLinks from '../../components/sideLinks/SideLinks'
 import Users from '../../components/users/Users'
+import Header from '../../components/Header/Header'
 
 const ExplorePage = () => {
   return (
+    <div>
+      <Header/>
+    
     <div className='main-div'>
         <div className='left-section'>
        <SideLinks/>
@@ -19,6 +23,7 @@ const ExplorePage = () => {
             <Users/>
     </div>
         
+    </div>
     </div>
     </div>
   
