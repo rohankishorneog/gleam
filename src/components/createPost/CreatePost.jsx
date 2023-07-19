@@ -39,7 +39,7 @@ const CreatePost = () => {
           value={formData.postData.content}
           onChange={handleOnChange}
           rows={5}
-          placeholder="Write your post..."
+          placeholder="..."
           required
         ></textarea>
         <button type="submit" className="create-post-button" id="createPostButton">

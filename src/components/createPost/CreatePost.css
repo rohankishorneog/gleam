@@ -24,7 +24,7 @@
     align-items: center;
     justify-content: center;
     padding: 0.2rem;
-    background-color: #007bff;
+    background-color: orangered;
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -37,13 +37,23 @@
   }
   
   @media (max-width: 768px) {
+    .create-post-container {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 1rem;
+      margin-left: 20%;
+      margin-right: 20%;
+      margin-top: 4%;
+      margin-bottom: 3%;
+    }
     .create-post-form {
       width: 100%; 
-      padding: 0 1rem; 
+      margin-left: 4%;
     }
   
     .create-post-textarea {
       height: 3vh;
+      width: 150px
     }
   
     .create-post-button {
@@ -52,4 +62,34 @@
       font-size: 1rem; 
     }
   }
+  
+
+  @media (max-width: 480px) {
+    .create-post-container {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 1rem;
+      margin-left: 0;
+      margin-right: 0%;
+      margin-top: 0%;
+      margin-bottom: 0%;
+    }
+    .create-post-form {
+      width: 100%; 
+      margin-left: 20%;
+      margin-right: 20%;
+    }
+  
+    .create-post-textarea {
+      height: 3vh;
+      width: 150px
+    }
+  
+    .create-post-button {
+      width: 40px; 
+      height: 40px; 
+      font-size: 1rem; 
+    }
+  }
+  
   
