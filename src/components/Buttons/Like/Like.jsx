@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { PostContext } from '../../../contexts/PostContext';
 import { FiThumbsUp } from 'react-icons/fi';
+import './Like.css'
 
 const Like = ({ postId }) => {
   const { addLike } = useContext(PostContext);
@@ -10,8 +11,8 @@ const Like = ({ postId }) => {
   };
 
   return (
-    <button className="post-action" onClick={handleLike}>
-      <FiThumbsUp />
+    <button onClick={handleLike}>
+      <FiThumbsUp   className="like-action"/>
     </button>
   );
 };
