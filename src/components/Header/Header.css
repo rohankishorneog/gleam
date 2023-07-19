@@ -1,7 +1,7 @@
 .header-div{
     display: flex;
     align-items: flex-start;
-    background-color: lightsalmon;
+    background-color: black;
 }
 
 .header-div h1{
